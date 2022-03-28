@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace ZangdorGames.Helpers.Extensions
 {
@@ -70,5 +71,58 @@ namespace ZangdorGames.Helpers.Extensions
         /// <returns>The mapped value.</returns>
         public static float Map(this float value, float min, float max, float targetMin, float targetMax)
                         => (value - min) * ((targetMax - targetMin) / (max - min)) + targetMin;
+
+        /// <summary>
+        /// Clamps and normalize a value between a minimum and a maximum angle value (in degrees).
+        /// </summary>
+        /// <param name="value">The angle to clamp.</param>
+        /// <param name="min">The minimum angle.</param>
+        /// <param name="max">The maximum angle.</param>
+        /// <returns>The clamped angle.</returns>
+        public static float ClampAngle(this float value, float min, float max) => Mathf.Clamp(value.NormalizeAngle(), min.NormalizeAngle(), max.NormalizeAngle());
+
+        /// <summary>
+        /// Normalizes and angle value (in degrees), making it be between the value ranges of 0 and 360. 
+        /// This means that the value 365 will be changed to 5, and the value -5 will be changed to 355.
+        /// </summary>
+        /// <param name="value">The angle to normalize.</param>
+        /// <returns>The normalized angle.</returns>
+        public static float NormalizeAngle(this float value)
+        {
+            if(value % 360 < 0)
+                return value % 360 + 360;
+            else
+                return value % 360;
+        }
+
+        /// <summary>
+        /// Converts an angle in degrees to radians.
+        /// </summary>
+        /// <param name="value">The angle to convert.</param>
+        /// <returns>The converted angle.</returns>
+        public static float DegreesToRadians(this float value) => value * Mathf.PI / 180f;
+
+        /// <summary>
+        /// Converts an angle in radians to degrees.
+        /// </summary>
+        /// <param name="value">The angle to convert.</param>
+        /// <returns>The converted angle.</returns>
+        public static float RadiansToDegrees(this float value) => value * 180f / Mathf.PI;
+
+        /// <summary>
+        /// Returns the value raised to power exponent.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="exponent">The exponent.</param>
+        /// <returns>The result of the value power the exponent</returns>
+        public static double Pow(this float value, float exponent) => Mathf.Pow( value, exponent);
+
+        /// <summary>
+        /// Returns the value raised to power exponent.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="exponent">The exponent.</param>
+        /// <returns>The result of the value power the exponent</returns>
+        public static float Pow(this float value, double exponent) => Mathf.Pow(value, (float) exponent);
     }
 }
