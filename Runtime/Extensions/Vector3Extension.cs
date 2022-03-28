@@ -38,7 +38,6 @@ namespace ZangdorGames.Helpers.Extensions
 
         /// <summary>
         /// Returns a new <see cref="Vector2"/> using the given vector's x as x and the y as y.
-        /// TODO
         /// </summary>
         /// <param name="vector">The vector to convert.</param>
         /// <returns>The new <see cref="Vector2"/>.</returns>
@@ -46,7 +45,6 @@ namespace ZangdorGames.Helpers.Extensions
 
         /// <summary>
         /// Returns a new <see cref="Vector2"/> using the given vector's x as x and the z as y.
-        /// TODO
         /// </summary>
         /// <param name="vector">The vector to convert.</param>
         /// <returns>The new <see cref="Vector2"/>.</returns>
