@@ -13,7 +13,7 @@ namespace ZangdorGames.Helpers.Exceptions
         /// The prefixed message in front of any
         /// <see cref="RuntimeUtilityException"/>
         /// </summary>
-        private const string PREFIX = "[DTT] - [RuntimeUtilityException] ";
+        private const string PREFIX = "- [RuntimeUtilityException] ";
         #endregion
         #endregion
 
