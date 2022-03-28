@@ -33,10 +33,10 @@ namespace ZangdorGames.Helpers.Extensions
         };
 
         /// <summary>
-        /// TODO
+        /// Remove the private prefix of a fieldname.
         /// </summary>
-        /// <param name="fieldName"></param>
-        /// <returns></returns>
+        /// <param name="fieldName">The fieldname to format.</param>
+        /// <returns>The formatted string.</returns>
         public static string ToDisplayName(this string fieldName)
         {
             StringBuilder stringBuilder = new StringBuilder(fieldName);
