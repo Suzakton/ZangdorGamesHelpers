@@ -104,8 +104,13 @@ namespace ZangdorGames.Helpers.Extensions
         /// </summary>
         /// <param name="value">The angle to normalize.</param>
         /// <returns>The normalized angle.</returns>
-        public static double NormalizeAngle(this double value) => value % 360;
-
+        public static double NormalizeAngle(this double value) 
+        {
+            if(value % 360 < 0)
+                return value % 360 + 360;
+            else
+                return value % 360;
+        }
 
         /// <summary>
         /// Converts an angle in degrees to radians.
