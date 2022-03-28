@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace ZangdorGames.Helpers.Extensions
 {
@@ -73,48 +74,67 @@ namespace ZangdorGames.Helpers.Extensions
     
 
         /// <summary>
-        /// Clamps a value between a minimum and a maximum angle value (in degrees).
-        /// TODO
+        /// Clamps and normalize a value between a minimum and a maximum angle value (in degrees).
         /// </summary>
         /// <param name="value">The angle to clamp.</param>
         /// <param name="min">The minimum angle.</param>
         /// <param name="max">The maximum angle.</param>
         /// <returns>The clamped angle.</returns>
-        public static double ClampAngle(this double value, double min, double max) => 0;
+        public static double ClampAngle(this double value, double min, double max)
+        {
+            double toClamp = value.NormalizeAngle();
+            double toClampMin = min.NormalizeAngle();
+            double toClampMax = max.NormalizeAngle();
+            if(min > max)
+            {
+                toClampMin = max.NormalizeAngle();
+                toClampMax = min.NormalizeAngle();
+            }
+            if(toClamp < toClampMin)
+                return toClampMin;
+            else if (toClamp > toClampMax)
+                return toClampMax;
+            else
+                return toClamp;
+        }
 
         /// <summary>
         /// Normalizes and angle value (in degrees), making it be between the value ranges of 0 and 360. 
         /// This means that the value 365 will be changed to 5, and the value -5 will be changed to 355.
-        /// TODO
         /// </summary>
         /// <param name="value">The angle to normalize.</param>
         /// <returns>The normalized angle.</returns>
-        public static double Normalize(this double value) => 0;
+        public static double NormalizeAngle(this double value) => value % 360;
 
 
         /// <summary>
         /// Converts an angle in degrees to radians.
-        /// TODO
         /// </summary>
         /// <param name="value">The angle to convert.</param>
         /// <returns>The converted angle.</returns>
-        public static double DegreesToRadians(this double value) => 0;
+        public static double DegreesToRadians(this double value) => value * Mathf.PI / 180;
 
         /// <summary>
         /// Converts an angle in radians to degrees.
-        /// TODO
         /// </summary>
         /// <param name="value">The angle to convert.</param>
         /// <returns>The converted angle.</returns>
-        public static double RadiansToDegrees(this double value) => 0;
+        public static double RadiansToDegrees(this double value) => value * 180 / Mathf.PI;
 
         /// <summary>
         /// Returns the value raised to power exponent.
-        /// TODO
         /// </summary>
         /// <param name="value">The value.</param>
         /// <param name="exponent">The exponent.</param>
         /// <returns>The result of the value power the exponent</returns>
-        public static double Pow(this double value, float exponent) => 0;
+        public static double Pow(this double value, float exponent) => Mathf.Pow((float) value, exponent);
+
+        /// <summary>
+        /// Returns the value raised to power exponent.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="exponent">The exponent.</param>
+        /// <returns>The result of the value power the exponent</returns>
+        public static double Pow(this double value, double exponent) => Mathf.Pow((float) value, (float) exponent);
     }
 }
