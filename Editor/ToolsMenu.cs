@@ -1,5 +1,6 @@
 #if UNITY_EDITOR
 
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using ZangdorGames.EditorHelpers.Tools;
@@ -45,7 +46,6 @@ namespace ZangdorGames.EditorHelpers
                 ApplyPreProcessingOnAsset(assetGuids[i], IOS_PREPROCESS_NAME);
         }
 
-
         /// <summary>
         /// Called when the unity android preprocessing menu item is clicked,
         /// it will apply unity android preprocessing on selected assets.
@@ -56,6 +56,17 @@ namespace ZangdorGames.EditorHelpers
             string[] assetGuids = Selection.assetGUIDs;
             for (int i = 0; i < assetGuids.Length; i++)
                 ApplyPreProcessingOnAsset(assetGuids[i], ANDROID_PREPROCESS_NAME);
+        }
+        
+        /// <summary>
+        /// Adds selected scene assets to build settings.
+        /// </summary>
+        [MenuItem("ZangdorGames/Tools/Add selected to build settings")]
+        private static void OnAddSceneAssetToBuildSettings()
+        {
+            string[] assetGuids = Selection.assetGUIDs;
+            if (assetGuids.Length != 0)
+                AddScenesToBuildSettings(assetGuids.Select(guid => AssetDatabase.GUIDToAssetPath(guid)).ToArray());
         }
     }
 }

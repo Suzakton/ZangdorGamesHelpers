@@ -32,11 +32,6 @@ namespace ZangdorGames.EditorHelpers.Utilities
         public const string ANDROID_PREPROCESS_NAME = "UNITY_ANDROID";
 
         /// <summary>
-        /// The menu item name for adding a scene asset to build settings.
-        /// </summary>
-        private const string SCENE_BUILD_SETTINGS_MENU_ITEM_NAME = "Assets/Add to build settings";
-
-        /// <summary>
         /// The preprocessing if statement.
         /// </summary>
         private const string PRE_PROCESS_IF = "#if ";
@@ -45,18 +40,6 @@ namespace ZangdorGames.EditorHelpers.Utilities
         /// The preprocessing end of an if statement.
         /// </summary>
         private const string PRE_PROCESS_END_IF = "#endif";
-
-
-        /// <summary>
-        /// Adds selected scene assets to build settings.
-        /// </summary>
-        [MenuItem(SCENE_BUILD_SETTINGS_MENU_ITEM_NAME)]
-        private static void OnAddSceneAssetToBuildSettings()
-        {
-            string[] assetGuids = Selection.assetGUIDs;
-            if (assetGuids.Length != 0)
-                AddScenesToBuildSettings(assetGuids.Select(guid => AssetDatabase.GUIDToAssetPath(guid)).ToArray());
-        }
 
         /// <summary>
         /// Adds a scene asset at given path to the build settings.
@@ -92,7 +75,6 @@ namespace ZangdorGames.EditorHelpers.Utilities
         /// Adds scene asset's at given paths to the build settings.
         /// </summary>
         /// <param name="sceneAssetPaths">The scene asset's paths.</param>
-        /// TODO : Check if asset is a scene
         public static void AddScenesToBuildSettings(string[] sceneAssetPaths)
         {
             if (sceneAssetPaths == null)
