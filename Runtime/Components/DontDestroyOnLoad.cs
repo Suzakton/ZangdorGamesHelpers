@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public class DontDestroyOnLoad : MonoBehaviour 
+namespace ZangdorGames.Helpers.Components
 {
-    private void Awake() 
+    public class DontDestroyOnLoad : MonoBehaviour 
     {
-        DontDestroyOnLoad(this);
+        private void Awake() 
+        {
+            DontDestroyOnLoad(this);
+        }
     }
 }
