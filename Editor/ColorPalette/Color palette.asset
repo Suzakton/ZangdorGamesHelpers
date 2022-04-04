@@ -12,4 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7edb8eb7125ea44f68bbe616b44fa9bc, type: 3}
   m_Name: Color palette
   m_EditorClassIdentifier: 
-  ColorDesigns: []
+  ColorDesigns:
+  - KeyChar: '!'
+    TextColor: {r: 1, g: 1, b: 1, a: 1}
+    BackgroundColor: {r: 1, g: 0, b: 0, a: 1}
+    TextAlignment: 4
+    FontStyle: 1
+    AllUppercase: 1
+  - KeyChar: '@'
+    TextColor: {r: 0.2924528, g: 0.29107332, b: 0.29107332, a: 1}
+    BackgroundColor: {r: 0, g: 0.7924528, b: 0.6968709, a: 1}
+    TextAlignment: 4
+    FontStyle: 0
+    AllUppercase: 1
