@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using UnityEditor;
 using UnityEngine;
 using ZangdorGames.Helpers.Scriptables;
@@ -69,3 +71,4 @@ namespace ZangdorGames.EditorHelpers.CustomEditors
         }
     }
 }
+#endif

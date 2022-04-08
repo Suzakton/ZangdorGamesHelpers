@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using UnityEngine;
 using UnityEditor;
 using ZangdorGames.Helpers.Scriptables;
@@ -11,3 +13,4 @@ public class EmptyEventEditor : Editor
             (target as EmptyEvent).Invoke();
     }
 }
+#endif

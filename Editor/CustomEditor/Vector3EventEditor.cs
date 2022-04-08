@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using UnityEngine;
 using UnityEditor;
 using ZangdorGames.Helpers.Scriptables;
@@ -20,3 +22,4 @@ public class Vector3EventEditor : Editor
             (target as Vector3Event).Invoke(_debugVariable);
     }
 }
+#endif

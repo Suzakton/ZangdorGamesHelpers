@@ -1,4 +1,6 @@
-﻿using System;
+#if UNITY_EDITOR
+
+using System;
 
 namespace ZangdorGames.EditorHelpers.Exceptions
 {
@@ -47,3 +49,4 @@ namespace ZangdorGames.EditorHelpers.Exceptions
         #endregion
     }
 }
+#endif
