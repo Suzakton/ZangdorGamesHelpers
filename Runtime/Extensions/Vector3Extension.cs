@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace ZangdorGames.Helpers.Extensions
 {
@@ -49,5 +51,18 @@ namespace ZangdorGames.Helpers.Extensions
         /// <param name="vector">The vector to convert.</param>
         /// <returns>The new <see cref="Vector2"/>.</returns>
         public static Vector2 ToVector2XZ(this Vector3 vector) => new Vector2(vector.x, vector.z);
+
+        /// <summary>
+        /// Check at the position (vector.x, vector.y) on the screen if there is an UI.
+        /// </summary>
+        /// <param name="vector">The position to check.</param>
+        /// <returns>True is there is an UI at this position, false otherwise.</returns>
+        public static bool IsOverUI(this Vector3 vector) 
+        {
+            PointerEventData _eventDataCurrentPosition = new PointerEventData(EventSystem.current) { position = vector.ToVector2XY() };
+            List<RaycastResult> _results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(_eventDataCurrentPosition, _results);
+            return _results.Count > 0;
+        }
     }
 }
