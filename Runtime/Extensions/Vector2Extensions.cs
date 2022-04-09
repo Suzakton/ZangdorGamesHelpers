@@ -42,5 +42,13 @@ namespace ZangdorGames.Helpers.Extensions
             EventSystem.current.RaycastAll(_eventDataCurrentPosition, _results);
             return _results.Count > 0;
         }
+
+        /// <summary>
+        /// Returns a new <see cref="Vector3"/> using the given vector's x as x the y as y and a new z value.
+        /// </summary>
+        /// <param name="vector">The vector to convert.</param>
+        /// <param name="zValue">The zValue of the new Vector3. 0 by default.</param>
+        /// <returns>The new <see cref="Vector3"/></returns>
+        public static Vector3 ToVector3(this Vector2 vector, float zValue = 0) => new Vector3(vector.x, vector.y, zValue);
     }
 }
