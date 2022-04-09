@@ -159,5 +159,17 @@ namespace ZangdorGames.Helpers.Extensions
             
             return gameObject.transform as RectTransform;
         }
+
+        /// <summary>
+        /// Return the world position from a camera of a canvas element.
+        /// </summary>
+        /// <param name="transform">The RectTransform to return the position of.</param>
+        /// <param name="camera">The camera from which we look for the position. Camera.main by default.</param>
+        /// <returns>The world position of the canvas element.</returns>
+        public static Vector3 GetWorldPositionOfCanvasElement(this RectTransform transform, Camera camera = null)
+        {
+            RectTransformUtility.ScreenPointToWorldPointInRectangle(transform, transform.position, camera == null ? Camera.main : camera, out var result);
+            return result;
+        }
     }
 }
