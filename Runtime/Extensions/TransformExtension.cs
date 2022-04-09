@@ -46,5 +46,20 @@ namespace ZangdorGames.Helpers.Extensions
         /// <param name="transform">The <see cref="GameObject"/> to look at the direct children of.</param>
         /// <returns>An array of component.</returns>
         public static T[] GetComponentsInDirectChildren<T>(this GameObject gameobject) where T : MonoBehaviour => gameobject.transform.GetComponentsInDirectChildren<T>();
+
+
+        /// <summary>
+        /// Delete and unreference all child of this transform.
+        /// </summary>
+        /// <param name="transform">The transform to delete all child of.</param>
+        public static void DeleteAllChildren(this Transform transform)
+        {
+            for (int i = transform.childCount - 1; i >= 0; i--)
+            {
+                Transform child = transform.GetChild(i);
+                child.parent = null;
+                Object.Destroy(child.gameObject);
+            }
+        }
     }
 }
