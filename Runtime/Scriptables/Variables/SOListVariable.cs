@@ -1,34 +1,41 @@
 using UnityEngine;
-
 namespace ZangdorGames.Helpers.Scriptables
-{    
+{   
     /// <summary>
-    /// Abstract class for every Scriptable Variables.
+    /// Abstract class for List Scriptable Variables.
+    /// <typeparam name="T">The type of variable in the list.</typeparam>
     /// </summary>
-    /// <typeparam name="T">The type of variable.</typeparam>
-    public abstract class SOVariable<T> : ScriptableObject
+    public abstract class SOListVariable<T> : ScriptableObject
     {
         /// <summary>
         /// The default value of the variable.
         /// </summary>
         [SerializeField]
-        protected T _defaultValue;
+        protected List<T> _defaultValue = null;
 
         /// <summary>
         /// The current value of the variable.
         /// </summary>
-        protected T _currentValue;
+        protected List<T> _currentValue = null;
 
         /// <summary>
         /// Getter of the current value.
         /// </summary>
-        public virtual T CurrentValue { get => _currentValue; }
+        public virtual List<T> CurrentValue
+        { 
+            get 
+            { 
+                if(_currentValue == null)
+                    _currentValue = new List<T>();
+                return _currentValue;
+            }
+        }
 
         /// <summary>
         /// Setter for the current variable.
         /// </summary>
         /// <param name="value">The value to set.</param>
-        public virtual void SetValue(T value)
+        public virtual void SetValue(List<T> value)
         {
             _currentValue = value;
         }
@@ -37,7 +44,7 @@ namespace ZangdorGames.Helpers.Scriptables
         /// Setter for the current variable.
         /// </summary>
         /// <param name="value"></param>
-        public virtual void SetValue(SOVariable<T> value)
+        public virtual void SetValue(SOListVariable<T> value)
         {
             _currentValue = value.CurrentValue;
         }
@@ -45,6 +52,8 @@ namespace ZangdorGames.Helpers.Scriptables
         protected virtual void OnEnable() 
         {
             _currentValue = _defaultValue;
+            if(_currentValue == null)
+                    _currentValue = new List<T>();
         }
     }
 }
