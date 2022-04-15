@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+
 namespace ZangdorGames.Helpers.Scriptables
 {   
     /// <summary>
