@@ -1,4 +1,4 @@
-#if UNITY_EDITOR
+﻿#if UNITY_EDITOR
 
 using System.Linq;
 using UnityEditor;
@@ -67,6 +67,20 @@ namespace ZangdorGames.EditorHelpers
             string[] assetGuids = Selection.assetGUIDs;
             if (assetGuids.Length != 0)
                 AddScenesToBuildSettings(assetGuids.Select(guid => AssetDatabase.GUIDToAssetPath(guid)).ToArray());
+        }
+
+        /// <summary>
+        /// Open the TODO list
+        /// </summary>
+        [MenuItem("ZangdorGames/Tools/ToDo Mini")]
+        public static void ShowTodoList()
+        {
+            ToDoMiniEditorWindow window = (ToDoMiniEditorWindow)GetWindow(typeof(ToDoMiniEditorWindow));
+            window.titleContent = new GUIContent("☑ ToDo");
+            window.autoRepaintOnSceneChange = false;
+            window.minSize = new Vector2(150, 150);
+            window.ShouldRefocusOnNewTask = true;
+            window.EmptySearch();
         }
     }
 }
