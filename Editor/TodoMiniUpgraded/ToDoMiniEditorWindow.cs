@@ -268,23 +268,18 @@ namespace ZangdorGames.EditorHelpers.Tools
                 EditorGUIUtility.IconContent("_Popup"),
                 GUI.skin.FindStyle("IconButton")))
             {
-                GenericMenu menu = new GenericMenu();
-                menu.AddItem(new GUIContent("Settings"), false, () =>
-                {
-                    // Open the inspector and select the Data object.
-                    EditorApplication.ExecuteMenuItem(
+                // Open the inspector and select the Data object.
+                EditorApplication.ExecuteMenuItem(
 #if UNITY_2018_1_OR_NEWER
-                    "Window/General/Inspector"
+                "Window/General/Inspector"
 #else
-                    "Window/Inspector"
+                "Window/Inspector"
 #endif
-                    );
-                    if (Selection.activeObject == Data)
-                        EditorGUIUtility.PingObject(Data);
-                    else
-                        Selection.SetActiveObjectWithContext(Data, null);
-                });
-                menu.ShowAsContext();
+                );
+                if (Selection.activeObject == Data)
+                    EditorGUIUtility.PingObject(Data);
+                else
+                    Selection.SetActiveObjectWithContext(Data, null);
             }
 #if UNITY_2019_1_OR_NEWER
             GUILayout.Space(-2);
