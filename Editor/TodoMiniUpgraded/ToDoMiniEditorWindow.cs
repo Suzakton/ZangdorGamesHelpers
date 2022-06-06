@@ -15,8 +15,7 @@ namespace ZangdorGames.EditorHelpers.Tools
         /// <summary>
         /// Path of the TODO list tool in the package.
         /// </summary>
-        //private const string PACKAGE_PATH = "Packages/com.zangdorgames.helpers/Editor/TodoMiniUpgraded";
-        private const string PACKAGE_PATH = "Assets/ZangdorGamesHelpers/Editor/TodoMiniUpgraded";
+        private const string PACKAGE_PATH = "Packages/com.zangdorgames.helpers/Editor/TodoMiniUpgraded";
 
         /// <summary>
         /// Identifier of the new task textfield
