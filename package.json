@@ -1,7 +1,7 @@
 {
     "name": "com.zangdorgames.helpers",
     "displayName": "Zangdor Games Helpers",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "description": "Zangdor Games helper classes for unity projects. Inspiration taken from multiple other packages : \n\t- DTT Editor Utilities 2.0.0\n\t- DTT Runtime Utilities 2.0.0",
     "keywords": [
       "tools",
