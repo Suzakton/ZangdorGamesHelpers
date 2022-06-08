@@ -13,9 +13,9 @@ namespace ZangdorGames.EditorHelpers.Tools
     public class ToDoMiniEditorWindow : EditorWindow
     {
         /// <summary>
-        /// Path of the TODO list tool in the package.
+        /// Path of the TODO list data
         /// </summary>
-        private const string PACKAGE_PATH = "Packages/com.zangdorgames.helpers/Editor/TodoMiniUpgraded";
+        private const string ASSET_DATA_PATH = "Assets";
 
         /// <summary>
         /// Identifier of the new task textfield
@@ -121,7 +121,7 @@ namespace ZangdorGames.EditorHelpers.Tools
             {
                 if (_data == null || ShouldRefreshData)
                 {
-                    _data = GetOrCreateData(PACKAGE_PATH);
+                    _data = GetOrCreateData(ASSET_DATA_PATH);
                     ShouldRefreshData = false;
                 }
                 return _data;

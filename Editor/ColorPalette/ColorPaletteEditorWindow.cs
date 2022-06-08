@@ -27,9 +27,9 @@ namespace ZangdorGames.EditorHelpers.Tools
         private const string COLOR_PALETTE_NULL_ERROR_MESSAGE = "No color palette scriptable asset found";
 
         /// <summary>
-        /// Path of the color palette tool in the package
+        /// Path of the color palette data
         /// </summary>
-        private const string PACKAGE_PATH = "Packages/com.zangdorgames.helpers/Editor/ColorPalette";
+        private const string ASSET_DATA_PATH = "Assets";
 
         /// <summary>
         /// Unity function OnEnable
@@ -53,7 +53,7 @@ namespace ZangdorGames.EditorHelpers.Tools
                 GUILayout.Label(COLOR_PALETTE_NULL_ERROR_MESSAGE.Bold().Color(Color.red), style);
                 
                 if(GUILayout.Button(CREATE_BUTTON_TEXT))
-                    ColorHierarchy.CreateColorPaletteAtPath(PACKAGE_PATH);
+                    ColorHierarchy.CreateColorPaletteAtPath(ASSET_DATA_PATH);
                 return;
             }
 
