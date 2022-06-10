@@ -18,6 +18,11 @@ namespace ZangdorGames.EditorHelpers.Tools
         private const string ASSET_DATA_PATH = "Assets";
 
         /// <summary>
+        /// Name of the TODO list data
+        /// </summary>
+        private const string ASSET_DATA_NAME = "ZangdorTodoListData";
+
+        /// <summary>
         /// Identifier of the new task textfield
         /// </summary>
         private const string CONTROL_NEW_TASK_TEXTFIELD = "miniNewTask";
@@ -121,7 +126,7 @@ namespace ZangdorGames.EditorHelpers.Tools
             {
                 if (_data == null || ShouldRefreshData)
                 {
-                    _data = GetOrCreateData(ASSET_DATA_PATH);
+                    _data = GetOrCreateData(ASSET_DATA_PATH, ASSET_DATA_NAME);
                     ShouldRefreshData = false;
                 }
                 return _data;
@@ -140,9 +145,9 @@ namespace ZangdorGames.EditorHelpers.Tools
         /// </summary>
         /// <param name="path">The path to load or create the data</param>
         /// <returns></returns>
-        private ToDoMiniData GetOrCreateData(string path)
+        private ToDoMiniData GetOrCreateData(string path, string assetName)
         {
-            ToDoMiniData data = AssetDatabaseUtility.GetOrCreateScriptableObjectAsset<ToDoMiniData>($"{path}/ToDoMiniData.asset");
+            ToDoMiniData data = AssetDatabaseUtility.GetOrCreateScriptableObjectAsset<ToDoMiniData>($"{path}/{assetName}.asset");
             AssetDatabase.Refresh();
             return data;
         }

@@ -58,9 +58,9 @@ namespace ZangdorGames.EditorHelpers.Tools
         /// Create a <see cref="ColorPalette"/> at the given path
         /// </summary>
         /// <param name="path">The path where we need to create the asset</param>
-        public static void CreateColorPaletteAtPath(string path)
+        public static void CreateColorPaletteAtPath(string path, string assetName)
         {
-            AssetDatabaseUtility.GetOrCreateScriptableObjectAsset<ColorPalette>($"{path}/Color palette.asset");
+            AssetDatabaseUtility.GetOrCreateScriptableObjectAsset<ColorPalette>($"{path}/{assetName}.asset");
             AssetDatabase.Refresh();
             InitializeColorPalette();
         }

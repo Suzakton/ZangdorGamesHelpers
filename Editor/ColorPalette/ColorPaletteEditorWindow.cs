@@ -32,6 +32,11 @@ namespace ZangdorGames.EditorHelpers.Tools
         private const string ASSET_DATA_PATH = "Assets";
 
         /// <summary>
+        /// Name of the color palette data
+        /// </summary>
+        private const string ASSET_DATA_NAME = "ZangdorColorPaletteData";
+
+        /// <summary>
         /// Unity function OnEnable
         /// </summary>
         private void OnEnable() 
@@ -53,7 +58,7 @@ namespace ZangdorGames.EditorHelpers.Tools
                 GUILayout.Label(COLOR_PALETTE_NULL_ERROR_MESSAGE.Bold().Color(Color.red), style);
                 
                 if(GUILayout.Button(CREATE_BUTTON_TEXT))
-                    ColorHierarchy.CreateColorPaletteAtPath(ASSET_DATA_PATH);
+                    ColorHierarchy.CreateColorPaletteAtPath(ASSET_DATA_PATH, ASSET_DATA_NAME);
                 return;
             }
 
